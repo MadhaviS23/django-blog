@@ -1,0 +1,62 @@
+
+
+
+<div class="masonry-box post-media">
+    <img src="upload/blog_masonry_02.jpg" alt="" class="img-fluid">
+    <div class="shadoweffect">
+       <div class="shadow-desc">
+           <div class="blog-meta">
+               <span class="bg-green"><a href="blog-category-01.html" title="">Travel</a></span>
+               <h4><a href="single.html" title="">5 places you should see</a></h4>
+               <small><a href="single.html" title="">24 July, 2017</a></small>
+               <small><a href="blog-author.html" title="">by Amanda</a></small>
+           </div><!-- end meta -->
+       </div><!-- end shadow-desc -->
+   </div><!-- end shadow -->
+</div><!-- end post-media -->
+
+
+
+
+<div class="masonry-box small-box post-media">
+    <img src="upload/blog_masonry_04.jpg" alt="" class="img-fluid">
+    <div class="shadoweffect">
+       <div class="shadow-desc">
+           <div class="blog-meta">
+               <span class="bg-green"><a href="blog-category-01.html" title="">Travel</a></span>
+               <h4><a href="single.html" title="">What you need to know for child health</a></h4>
+           </div><!-- end meta -->
+       </div><!-- end shadow-desc -->
+   </div><!-- end shadow -->
+</div><!-- end post-media -->
+
+
+
+<div class="masonry-box small-box post-media">
+    <img src="upload/blog_masonry_03.jpg" alt="" class="img-fluid">
+    <div class="shadoweffect">
+       <div class="shadow-desc">
+           <div class="blog-meta">
+               <span class="bg-green"><a href="blog-category-01.html" title="">Travel</a></span>
+               <h4><a href="single.html" title="">Separate your place with exotic hotels</a></h4>
+           </div><!-- end meta -->
+       </div><!-- end shadow-desc -->
+   </div><!-- end shadow -->
+</div><!-- end post-media -->
+
+
+def category_list(request,id):
+    cat= post.objects.filter(category_id = request.kwargs.get('id'))
+
+    context = {
+        'cat' : cat
+    }
+    return render (request, 'category_list.html', context)
+
+
+    path('category/<id>', category_list , name= 'category_list')
+
+
+def get_category_count():
+    
+  return queryset

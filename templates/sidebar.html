@@ -1,0 +1,48 @@
+
+{% load static %}
+{% static "images" as baseUrl %}
+
+<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+    <div class="sidebar">
+      
+
+        <div class="widget">
+            <h2 class="widget-title">Trending </h2>
+            <div class="blog-list-widget">
+                <div class="list-group">
+
+                    {% for obj in latest %}
+
+                    <a href="{{ obj.get_absolute_url }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="w-100 justify-content-between">
+                            <img src="{{ obj.thumbnail.url }}" alt="" class="img-fluid float-left">
+                            <h5 class="mb-1">{{ obj.title }}</h5>
+                            <small>{{ obj.timestamp }}</small>
+                        </div>
+                    </a>
+
+                    {% endfor %}
+                
+                </div>
+            </div><!-- end blog-list -->
+        </div><!-- end widget -->
+
+        <div class="widget">
+            <h2 class="widget-title">Advertising</h2>
+            <div class="banner-spot clearfix">
+                <div class="banner-img">
+                    <img src="{% static 'upload/banner_03.jpg'%}" alt="" class="img-fluid">
+                </div><!-- end banner-img -->
+            </div><!-- end banner -->
+        </div><!-- end widget -->
+
+        <div class="widget">
+            <h2 class="widget-title">Advertising</h2>
+            <div class="banner-spot clearfix">
+                <div class="banner-img">
+                    <img src="{% static 'upload/banner_03.jpg'%}" alt="" class="img-fluid">
+                </div><!-- end banner-img -->
+            </div><!-- end banner -->
+        </div><!-- end widget -->
+</div><!-- end sidebar -->
+</div><!-- end col -->

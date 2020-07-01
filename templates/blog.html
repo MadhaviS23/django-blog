@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% static "images" as baseUrl %}
+
+{% block content %}
+    <div id="wrapper">
+        <div class="page-title wb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <h2><i class="fa fa-car bg-green"></i> Posts <small class="hidden-xs-down hidden-sm-down"></small></h2>
+                    </div><!-- end col -->
+                    <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="">Blog</a></li>
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+                    </div><!-- end col -->                    
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </div><!-- end page-title -->
+
+        <section class="section wb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="row">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="banner-spot clearfix">
+                                        <div class="banner-img">
+                                            <img src="{% static 'upload/banner_02.jpg' %}" alt="" class="img-fluid">
+                                        </div><!-- end banner-img -->
+                                    </div><!-- end banner -->
+                                </div><!-- end col -->
+                            </div><!-- end row -->
+
+                            <hr class="invis">
+                            
+                            <div class="blog-grid-system">
+                                <div class="row">
+
+                                    {% for obj in queryset %}
+
+                                    <div class="col-md-6">
+                                        <div class="blog-box">
+                                            <div class="post-media">
+                                                <a href="{{ obj.get_absolute_url }}" title="">
+                                                    <img src="{{obj.thumbnail.url}}" alt="" class="img-fluid">
+                                                    <div class="hovereffect">
+                                                        <span></span>
+                                                    </div><!-- end hover -->
+                                                </a>
+                                            </div><!-- end media -->
+                                            <div class="blog-meta big-meta">
+                                                <h4><a href="{{ obj.get_absolute_url }}" title="">{{ obj.title }}</a></h4>
+                                                <p> {{ obj.overview }} </p>
+                                                {% for cat in obj.categories.all %}
+                                                <small><a href="blog-category-01.html" title="">{{ cat.title }}</a></small>
+                                                {% endfor %}
+                                                <small><a href="single.html" title="">{{ obj.timestamp|timesince }} ago </a></small>
+                                                <small><a href="blog-author.html" title="">by {{ obj.author.user.username}}</a></small>
+                                            </div><!-- end meta -->
+                                        </div><!-- end blog-box -->
+                                    </div><!-- end col -->
+
+                                    {% endfor %}
+
+                                </div><!-- end row -->
+                            </div><!-- end blog-grid-system -->
+                        </div><!-- end page-wrapper -->
+
+                        <hr class="invis3">
+
+                        <!--pagination-->
+          
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-start">
+
+                                        {% if queryset.has_previous%}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?{{page_request_var }}={{queryset.previous_page_number }}">Prev</a>
+                                        </li>
+                                        {% endif %}
+
+                                        {% for p in queryset.paginator.page_range %}
+                                            {% if queryset.number == p %}
+                                        
+                                                <li class="page-item-active"><a class="page-link" href="?page={{p}}">{{ p }}</a></li>
+                                                
+                                            {% else %}
+                                            <li class="page-item"><a class="page-link" href="?page={{p}}">{{ p }}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                        
+                                        {% if queryset.has_next%}
+                                       
+                                        <li class="page-item">
+                                            <a class="page-link" href="?{{page_request_var }}={{queryset.next_page_number }}">Next</a>
+                                        </li>
+                                        {% endif %}
+                                      
+                                    </ul>
+                                </nav>
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end col -->
+
+                   
+                    {% include 'sidebar.html' with trending=latest %}
+
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+
+      
+
+        <div class="dmtop">Scroll to Top</div>
+        
+    </div><!-- end wrapper -->
+
+{% endblock content %}
+

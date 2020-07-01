@@ -1,0 +1,79 @@
+ {% load static %}
+ {% static "images" as baseUrl %}
+ 
+ <!-- LOADER -->
+ <div id="preloader">
+    <img class="preloader" src="{% static 'images/loader.gif'%}" alt="">
+</div><!-- end loader -->
+<!-- END LOADER -->
+
+
+    <div class="collapse top-search" id="collapseExample">
+        <div class="card card-block">
+            <div class="newsletter-widget text-center">
+                <form action ="{% url 'search' %}" class="form-inline">
+                    <input type="text" name= "q" class="form-control" placeholder="What you are looking for?">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </form>
+            </div><!-- end newsletter -->
+        </div>
+    </div><!-- end top-search -->
+
+    <div class="topbar-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 hidden-xs-down">
+                    <div class="topsocial">
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                    </div><!-- end social -->
+                </div><!-- end col -->
+
+                
+
+                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+                    <div class="topsearch text-right">
+                        <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-search"></i> Search</a>
+                    </div><!-- end search -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end header-logo -->
+    </div><!-- end topbar -->
+
+    <div class="header-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="logo">
+                        <img src="{% static 'images/logo.png'%}" alt="">
+                    </div><!-- end logo -->
+                </div>
+            </div><!-- end row -->
+        </div><!-- end header-logo -->
+    </div><!-- end header -->
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-toggleable-md">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cloapediamenu" aria-controls="cloapediamenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-md-center" id="cloapediamenu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link color-pink-hover" href="/">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link color-green-hover" href="/blog">BLOG</a>
+                        </li> 
+                        <!-- NAv categories ,features 
+                       
+                       
+                        -->
+                    </ul>
+                </div>
+            </nav>
+        </div><!-- end container -->
+    </header><!-- end header -->
