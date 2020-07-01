@@ -18,7 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from posts.views import index, blog, single, search,category_list
+from posts.views import index, blog, single, search,category
 from newsletter.views import subscribe
 
 urlpatterns = [
@@ -27,7 +27,7 @@ urlpatterns = [
     path('blog/',blog, name= 'blog-list'),
     path('single/<id>/', single, name= 'single-detail'),
     path('search/', search, name= 'search'),
-    path('category/<id>', category_list , name= 'category_list'),
+    path('category/<int:id>/', category , name= 'category'),
    # path('category_detail/<id>/', category_detail , name= 'category_detail'),
     path('tinymce/', include('tinymce.urls')),
     path('subscribe',subscribe)

@@ -9,10 +9,9 @@ from .models import post , Category, Author
 
 #category_detail
 
-def category_list(request,id):
-    category = get_object_or_404(Category,id =id)
-    catdetail= post.objects.filter(categories__title = category.title) 
-
+def category(request,id):
+    category = get_object_or_404(Category,id=id)
+    catdetail = post.objects.filter(categories__title = category.title)
     context = {
         'category' : category,
         'catdetail' : catdetail,
@@ -23,7 +22,7 @@ def category_list(request,id):
 
 #categoroy_count
 def get_category_count():
-    queryset= post.objects.values('categories__title').annotate(Count('categories'))
+    queryset= post.objects.values('categories__id', 'categories__title').annotate(Count('categories'))
     return queryset
 
     

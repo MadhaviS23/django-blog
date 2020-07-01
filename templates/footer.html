@@ -59,9 +59,10 @@
                     <h2 class="widget-title">Popular Categories</h2>
                     <div class="link-widget">
                         <ul>
+                        
                             {% for cat in cat_count %}
                            
-                            <li><a href="#">{{cat.categories__title}} <span>{{cat.categories__count}}</span></a></li>
+                            <li><a href="{% url 'category' cat.categories__id %}">{{cat.categories__id}}{{cat.categories__title}} <span>{{cat.categories__count}}</span></a></li>
                             
                             {% endfor %}
                             
