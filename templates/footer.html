@@ -1,5 +1,13 @@
 {% load static %}
 
+<style>
+
+    .list-group img{
+        width : 90px;
+        height: 45px;
+    }
+</style>
+
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -11,7 +19,7 @@
 
                             {% for obj in latest %}
 
-                            <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a href="{{obj.get_absolute_url }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="w-100 justify-content-between">
                                     <img src="{{obj.thumbnail.url}}" alt="" class="img-fluid float-left">
                                     <h5 class="mb-1">{{ obj.title }}</h5>
@@ -34,16 +42,12 @@
                             
                                 {% for obj in popular %}
 
-                            <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a href="{{ obj.get_absolute_url }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="w-100 justify-content-between">
                                     <img src="{{ obj.thumbnail.url}}" alt="" class="img-fluid float-left">
                                     <h5 class="mb-1">{{obj.title}}</h5>
                                     <span class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                       
                                     </span>
                                 </div>
                             </a>
@@ -62,7 +66,7 @@
                         
                             {% for cat in cat_count %}
                            
-                            <li><a href="{% url 'category' cat.categories__id %}">{{cat.categories__id}}{{cat.categories__title}} <span>{{cat.categories__count}}</span></a></li>
+                            <li><a href="{% url 'category' cat.categories__id %}">{{cat.categories__title}} <span>{{cat.categories__count}}</span></a></li>
                             
                             {% endfor %}
                             
@@ -79,7 +83,7 @@
                 <div class="widget">
                     <div class="footer-text text-center">
                         <a href="index.html"><img src="{% static 'images/flogo.png '%}" alt="" class="img-fluid"></a>
-                        <p>Cloapedia is a personal blog for handcrafted, cameramade photography content, fashion styles from independent creatives around the world.</p>
+                        <p>The person who doesnt know where his next dollar is coming from usually doesn't konw where his last dollar went .</p>
                         <div class="social">
                             <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
                             <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>

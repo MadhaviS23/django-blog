@@ -6,7 +6,16 @@
 
 
 {% block content %}
+<!--
+<style>
+    .masonry-box post-media .img {
+        width: inherit;
+        height: 400px;
+    }
 
+</style>
+
+-->
 
     <div id="wrapper">
         <section class="section first-section"></section>
@@ -17,13 +26,15 @@
                 
             <div class="left-side">
                 <div class="masonry-box post-media">
-                     <img src="{{obj.thumbnail.url}}" alt="" class="img-fluid">
+                     <img src="{{obj.thumbnail.url}}"  style="width: 440px; height: 265px;" alt="" class="img-fluid">
                     <div class="shadoweffect">
                         <div class="shadow-desc">
                             <div class="blog-meta">
-                                <span class="bg-aqua"><a href="blog-category-01.html" title="">Lifestyle</a></span>
-                                <h4><a href="single.html" title="">{{obj.title}}</a></h4>
-                                <small><a href="single.html" title="">{{obj.timestamp}}</a></small>
+                                {% for cat in obj.categories.all %}
+                                <span class="bg-green"><a href="blog-category-01.html" title="">{{cat.title}}</a></span>
+                                {% endfor %}
+                                <h4><a href="{{obj.get_absolute_url}}" title="">{{obj.title}}</a></h4>
+                                <small><a href="{{obj.get_absolute_url}}" title="">{{obj.timestamp}}</a></small>
                                 <small><a href="blog-author.html" title="">by{{obj.author.user.username}}</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
@@ -38,13 +49,15 @@
                 
 
                 <div class="masonry-box post-media">
-                    <img src="{{obj.thumbnail.url}}" alt="" class="img-fluid">
+                    <img src="{{obj.thumbnail.url}}"  style="width: 440px; height: 265px;" alt="" class="img-fluid">
                     <div class="shadoweffect">
                        <div class="shadow-desc">
                            <div class="blog-meta">
-                               <span class="bg-green"><a href="blog-category-01.html" title="">Travel</a></span>
-                               <h4><a href="single.html" title="">{{obj.title}}</a></h4>
-                               <small><a href="single.html" title="">{{obj.timestamp}}</a></small>
+                            {% for cat in obj.categories.all %}
+                               <span class="bg-green"><a href="blog-category-01.html" title="">{{cat.title}}</a></span>
+                               {% endfor %}
+                               <h4><a href="{{ obj.get_absolute_url }}" title="">{{obj.title}}</a></h4>
+                               <small><a href="{{ obj.get_absolute_url}}" title="">{{obj.timestamp}}</a></small>
                                <small><a href="blog-author.html" title="">by {{obj.author.user.username}}</a></small>
                            </div><!-- end meta -->
                        </div><!-- end shadow-desc -->
@@ -59,13 +72,15 @@
 
             <div class="right-side hidden-md-down">
                 <div class="masonry-box post-media">
-                     <img src="{{obj.thumbnail.url}}" alt="" class="img-fluid">
+                     <img src="{{obj.thumbnail.url}}" style="width: 440px; height: 265px;" alt="" class="img-fluid">
                      <div class="shadoweffect">
                         <div class="shadow-desc">
                             <div class="blog-meta">
-                                <span class="bg-aqua"><a href="blog-category-01.html" title="">Lifestyle</a></span>
-                                <h4><a href="single.html" title="">{{obj.title}}</a></h4>
-                                <small><a href="single.html" title="">{{obj.timestamp}}</a></small>
+                                {% for cat in obj.categories.all %}
+                                <span class="bg-aqua"><a href="blog-category-01.html" title="">{{cat.title}}</a></span>
+                                {% endfor %}
+                                <h4><a href="{{obj.get_absolute_url}}" title="">{{obj.title}}</a></h4>
+                                <small><a href="{{obj.get_absolute_url}}" title="">{{obj.timestamp}}</a></small>
                                 <small><a href="blog-author.html" title="">by {{obj.author.user.username}}</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
@@ -85,7 +100,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="section-title">
-                            <h3 class="color-aqua"><a href="blog-category-01.html" title="">Lifestyle</a></h3>
+                            <h3 class="color-aqua"><a href="" title="">Trending</a></h3>
                         </div><!-- end title -->
 
                         <div class="row">
@@ -95,7 +110,7 @@
 
                                     <div class="blog-box">
                                         <div class="post-media">
-                                            <a href="single.html" title="">
+                                            <a href="{{obj.get_absolute_url}}" title="">
                                                 <img src="{{ obj.thumbnail.url }}" alt="" class="img-fluid">
                                                 <div class="hovereffect">
                                                 <span></span>
@@ -103,12 +118,12 @@
                                             </a>
                                         </div><!-- end media -->
                                         <div class="blog-meta big-meta">
-                                            <h4><a href="single.html" title="">{{ obj.title }}</a></h4>
+                                            <h4><a href="{{obj.get_absolute_url}}" title="">{{ obj.title }}</a></h4>
                                             <p>{{ obj.overview }}</p>
                                             {%  for cat in obj.categories.all%}
-                                            <small><a href="blog-category-01.html" title="">{{cat}}</a></small>
+                                            <small><a href="" title="">{{cat.title}}</a></small>
                                             {% endfor %}
-                                            <small><a href="single.html" title="">{{ obj.timestamp }}</a></small>
+                                            <small>{{ obj.timestamp }}</small>
                                             <small><a href="blog-author.html" title="">by {{obj.author.user.username}}</a></small>
                                         </div><!-- end meta -->
                                     </div><!-- end blog-box -->
@@ -123,28 +138,28 @@
                     </div><!-- end col -->
 
                    
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-left: 50px;">
                         <div class="section-title">
-                            <h3 class="color-pink"><a href="blog-category-01.html" title="">Fashion</a></h3>
+                            <h3 class="color-pink"><a href="" title="">Most Viewed</a></h3>
                         </div><!-- end title -->
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
 
                                 {% for obj in random2 %}
 
                                 <div class="blog-box">
                                     <div class="post-media">
-                                        <a href="single.html" title="">
-                                            <img src="{{ obj.thumbnail.url }}" alt="" class="img-fluid">
+                                        <a href="{{obj.get_absolute_url}}" title="">
+                                            <img src="{{ obj.thumbnail.url }}" style=" width: 420px ; height: 200px;" alt="" class="img-fluid">
                                             <div class="hovereffect">
                                                 <span></span>
                                             </div><!-- end hover -->
                                         </a>
                                     </div><!-- end media -->
                                     <div class="blog-meta">
-                                        <h4><a href="single.html" title="">{{obj.title}}</a></h4>
+                                        <h4><a href="{{obj.get_absolute_url}}" title="">{{obj.title}}</a></h4>
                                         <small><a href="blog-category-01.html" title="">{{obj.timestamp}}</a></small>
-                                    </div><!-- end meta -->
+                                    </div><!--end meta -->
                                 </div><!-- end blog-box -->
 
                                 <hr class="invis">
@@ -155,30 +170,7 @@
                             </div><!-- end col -->
                         
 
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-
-                                {%for obj in random3 %}
-                                <div class="blog-box">
-                                    <div class="post-media">
-                                        <a href="single.html" title="">
-                                            <img src="{{ obj.thumbnail.url }}" alt="" class="img-fluid">
-                                            <div class="hovereffect">
-                                                <span></span>
-                                            </div><!-- end hover -->
-                                        </a>
-                                    </div><!-- end media -->
-                                    <div class="blog-meta">
-                                        <h4><a href="single.html" title="">{{obj.title}}</a></h4>
-                                        
-                                        <small><a href="blog-category-01.html" title="">{{obj.timestamp}}</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-
-                                <hr class="invis">
-                                {% endfor %}
-
-                               
-                            </div><!-- end col -->
+                        
                         </div><!-- end row -->
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -197,11 +189,11 @@
 
                 <hr class="invis1">
 
-                <div class="row">
+                <div class="row" >
                     <div class="col-lg-9">
                         <div class="blog-list clearfix">
                             <div class="section-title">
-                                <h3 class="color-green"><a href="blog-category-01.html" title="">Travel</a></h3>
+                                <h3 class="color-green"><a href="blog-category-01.html" title="">Technology</a></h3>
                             </div><!-- end title-->
 
                           
@@ -211,21 +203,21 @@
 
                                     {% for obj in category1 %}
 
-                            <div class="blog-box row">
+                            <div class="blog-box row" style="padding-top:20px ;  padding-bottom: 40px;">
                                 <div class="col-md-4">
                                     <div class="post-media">
-                                        <a href="single.html" title="">
-                                            <img src="{{ obj.thumbnail.url }}" alt="" class="img-fluid">
+                                        <a href="{{obj.get_absolute_url}}" title="">
+                                            <img src="{{ obj.thumbnail.url }}" style ="width: 250px; height: 200px;" alt="" class="img-fluid">
                                             <div class="hovereffect"></div>
                                         </a>
                                     </div><!-- end media -->
                                 </div><!-- end col -->
 
                                 <div class="blog-meta big-meta col-md-8">
-                                    <h4><a href="single.html" title="">{{ obj.title }}</a></h4>
+                                    <h4><a href="{{obj.get_absolute_url}}" title="">{{ obj.title }}</a></h4>
                                     <p>{{ obj.overview }}</p>
-                                    <small><a href="single.html" title="">{{obj.timestamp}}</a></small>
-                                    <small><a href="blog-author.html" title=""></a></small>
+                                    <small><a href="{{obj.get_absolute_url}}" title="">{{obj.timestamp}}</a></small>
+                                    <small><a href="{{obj.get_absolute_url}}" title=""></a></small>
                                 </div><!-- end meta -->
                             </div><!-- end blog-box -->
 
@@ -237,10 +229,9 @@
 
                     <div class="col-lg-3">
                         <div class="section-title">
-                            <h3 class="color-yellow"><a href="blog-category-01.html" title="">Vlogs</a></h3>
+                            <h3 class="color-yellow"><a href="blog-category-01.html" title="">Blog</a></h3>
                         </div><!-- end title-->
 
-                        
 
                         <hr class="invis">
 
@@ -248,17 +239,17 @@
 
                         <div class="blog-box">
                             <div class="post-media">
-                                <a href="single.html" title="">
-                                    <img src="{{ obj.thumbnail.url }}" alt="" class="img-fluid">
+                                <a href="{{obj.get_absolute_url}}" title="">
+                                    <img src="{{ obj.thumbnail.url }}" style ="width: 280px; height: 200px;" alt="" class="img-fluid">
                                     <div class="hovereffect">
                                         <span></span>
                                     </div><!-- end hover -->
                                 </a>
                             </div><!-- end media -->
                             <div class="blog-meta">
-                                <h4><a href="single.html" title="">{{ obj.title }}</a></h4>
+                                <h4><a href="{{obj.get_absolute_url}}" title="">{{ obj.title }}</a></h4>
                                 
-                                <small><a href="blog-category-01.html" title="">{{ obj.timestamp }}</a></small>
+                                <small><a href="{{obj.get_absolute_url}}" title="">{{ obj.timestamp }}</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box-->
 

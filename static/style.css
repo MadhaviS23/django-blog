@@ -856,12 +856,15 @@ div.tab button:hover {
     position: relative;
     margin: 1rem 0 0;
 }
-
 .gp-button.btn-primary:hover,
 .gp-button.btn-primary:focus,
 .gp-button.btn-primary {
-    border-color: #DA5333 !important;
-    background-color: #DA5333 !important;
+    background-color: #bd3177 ;
+    border-color: #bd3177 ;
+}
+
+.gp-button i{
+    margin-right: 0.5rem;
 }
 
 .fb-button.btn-primary:focus,
@@ -877,7 +880,7 @@ div.tab button:hover {
     background-color: #00B6F1 !important;
     border-color: #00B6F1 !important;
 }
-
+.gp-button i,
 .tw-button i,
 .fb-button i {
     margin-right: 0.5rem;
@@ -888,13 +891,16 @@ div.tab button:hover {
     border-radius: 3px;
     color: #ffffff !important;
 }
+    
+
+
 
 .post-sharing .btn:hover {
     opacity: 0.9;
 }
 
 .gp-button {
-    padding: 0.8rem 1rem !important;
+    padding: 1rem 1rem !important;
 }
 
 .post-sharing span,
@@ -1444,7 +1450,7 @@ hr.invis3 {
 .blog-list-widget img {
     background: #fff none repeat scroll 0 0;
     margin-right: 15px;
-    max-width: 80px;
+    max-width: 200px;
     padding: 4px;
 }
 

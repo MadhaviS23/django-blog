@@ -1,11 +1,34 @@
 {% extends 'base.html' %}
 
-
-
 {% block content %}
 
 {% load static %}
 {% static "images" as baseUrl %}
+
+
+
+<style>
+    .single-post-media img{
+
+        width: 700px;
+        height: 400px;
+
+
+    }
+
+    .fa fa-instagram{
+
+        font-size: 5px;
+    }
+
+    .vertical { 
+            border-left: 1px solid rgb(201, 193, 193); 
+            height: 100px; 
+            position:absolute; 
+            left: 50%; 
+        }
+
+</style>
 
     <div id="wrapper">
 
@@ -21,7 +44,7 @@
                                     <li class="breadcrumb-item active">{{post.title}}</li>
                                 </ol>
                                 {% for cat in post.categories.all %}
-                                <span class="color-aqua"><a href="blog-category-01.html" title="">{{cat.title}}</a></span>
+                                <span class="color-aqua"><a href="{{cat.get_absolute_url}}" title="">{{cat.title}}</a></span>
                                 {% endfor %}
                                 <h3>{{post.title}}</h3>
 
@@ -35,7 +58,7 @@
                                     <ul class="list-inline">
                                         <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
                                         <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
-                                        <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-instagram"  style ="font-size: 20px; border-radius: 300px;" ></i></a></li>
                                     </ul>
                                 </div><!-- end post-sharing -->
                             </div><!-- end title -->
@@ -61,7 +84,7 @@
                                     <ul class="list-inline">
                                         <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
                                         <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
-                                        <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-instagram" style ="font-size: 20px;  border-radius: 300px; "></i></a></li>
                                     </ul>
                                 </div><!-- end post-sharing -->
                             </div><!-- end title -->
@@ -84,9 +107,9 @@
                                         <div class="blog-list-widget">
                                             <div class="list-group">
                                                 {% if post.prev_post %}
-                                                <a href="{{post.prev_post.get_absolute_url}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                <a href="{{post.prev_post.get_absolute_url}}"  class="list-group-item list-group-item-action flex-column align-items-start">
                                                     <div class="w-100 justify-content-between text-right">
-                                                        <img src="{{post.prev_post.thumbnail.url}}" alt="" class="img-fluid float-right">
+                                                        <img src="{{post.prev_post.thumbnail.url}}" alt=""  style = "width: 150px; height: 80px;" class="img-fluid float-right">
                                                         <h5 class="mb-1">{{ post.prev_post.title}}</h5>
                                                         <small>Prev Post</small>
                                                     </div>
@@ -96,13 +119,15 @@
                                         </div>
                                     </div><!-- end col -->
 
+                                    <div class = "vertical"></div>
+
                                     <div class="col-lg-6">
                                         <div class="blog-list-widget">
                                             <div class="list-group">
                                                 {% if post.next_post %}
-                                                <a href="{{post.next_post.get_absolute_url}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                                <a href="{{post.next_post.get_absolute_url}}"  class="list-group-item list-group-item-action flex-column align-items-start">
                                                     <div class="w-100 justify-content-between">
-                                                        <img src="{{post.next_post.thumbnail.url}}" alt="" class="img-fluid float-left">
+                                                        <img src="{{post.next_post.thumbnail.url}}" alt="" style = "width: 150px; height: 80px;" class="img-fluid float-left">
                                                         <h5 class="mb-1">{{post.next_post.title}}</h5>
                                                         <small>Next Post</small>
                                                     </div>
@@ -116,71 +141,64 @@
 
                             <hr class="invis1">
 
-                           <!-- <div class="custombox authorbox clearfix">
-                                <h4 class="small-title">About author</h4>
-                                <div class="row">
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                        <img src="{% static 'upload/author.jpg'%}" alt="" class="img-fluid rounded-circle"> 
-                                    </div><!- end col ->
-
-                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                        <h4><a href="#">Jessica</a></h4>
-                                        <p>Quisque sed tristique felis. Lorem <a href="#">visit my website</a> amet, consectetur adipiscing elit. Phasellus quis mi auctor, tincidunt nisl eget, finibus odio. Duis tempus elit quis risus congue feugiat. Thanks for stop Cloapedia!</p>
-
-                                        <div class="topsocial">
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Website"><i class="fa fa-link"></i></a>
-                                        </div><!- end social ->
-
-                                    </div><!- end col ->
-                                </div><!- end row ->
-                            </div><!- end author-box -->
+                           
 
                             <hr class="invis1">
 
                             <div class="custombox clearfix">
                                 <h4 class="small-title">You may also like</h4>
+                                
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="blog-box">
-                                            <div class="post-media">
-                                                <a href="single.html" title="">
-                                                    <img src="{% static 'upload/menu_06.jpg'%}" alt="" class="img-fluid">
-                                                    <div class="hovereffect">
-                                                        <span class=""></span>
-                                                    </div><!-- end hover -->
-                                                </a>
-                                            </div><!-- end media -->
-                                            <div class="blog-meta">
-                                                <h4><a href="single.html" title="">We are guests of ABC Design Studio</a></h4>
-                                                <small><a href="blog-category-01.html" title="">Trends</a></small>
-                                                <small><a href="blog-category-01.html" title="">21 July, 2017</a></small>
-                                            </div><!-- end meta -->
-                                        </div><!-- end blog-box -->
-                                    </div><!-- end col -->
+                                    {% if post.U_may_also_like_1  %}
 
                                     <div class="col-lg-6">
                                         <div class="blog-box">
                                             <div class="post-media">
-                                                <a href="single.html" title="">
-                                                    <img src="{% static 'upload/menu_07.jpg'%}" alt="" class="img-fluid">
+                                                <a href="{{ post.U_may_also_like_1.get_absolute_url}}" title="">
+                                                    <img src="{{ post.U_may_also_like_1.thumbnail.url}}" style=" width: 400px; height: 200px;" alt="" class="img-fluid">
                                                     <div class="hovereffect">
                                                         <span class=""></span>
                                                     </div><!-- end hover -->
                                                 </a>
                                             </div><!-- end media -->
                                             <div class="blog-meta">
-                                                <h4><a href="single.html" title="">Nostalgia at work with family</a></h4>
-                                                <small><a href="blog-category-01.html" title="">News</a></small>
-                                                <small><a href="blog-category-01.html" title="">20 July, 2017</a></small>
+                                                <h4><a href="{{ post.U_may_also_like_1.get_absolute_url}}" title="">{{  post.U_may_also_like_1.title }}</a></h4>
+                                                {% for cat in  post.U_may_also_like_1.categories.all %} 
+                                                <small><a href="{{ post.U_may_also_like_1.get_absolute_url}}" title="">{{ cat.title }}</a></small>
+                                                {% endfor %}
+                                                <small><a href="blog-category-01.html" title="">{{  post.U_may_also_like_1.timestamp }}</a></small>
                                             </div><!-- end meta -->
                                         </div><!-- end blog-box -->
                                     </div><!-- end col -->
+
+                                    {% endif %}
+
+
+                                    {% if post.U_may_also_like_2 %}
+
+                                    <div class="col-lg-6">
+                                        <div class="blog-box">
+                                            <div class="post-media">
+                                                <a href="{{ post.U_may_also_like_2.get_absolute_url}}" title="">
+                                                    <img src="{{ post.U_may_also_like_2.thumbnail.url}}" style=" width: 400px; height: 200px;" alt="" class="img-fluid">
+                                                    <div class="hovereffect">
+                                                        <span class=""></span>
+                                                    </div><!-- end hover -->
+                                                </a>
+                                            </div><!-- end media -->
+                                            <div class="blog-meta">
+                                                <h4><a href="{{ post.U_may_also_like_2.get_absolute_url}}" title="">{{  post.U_may_also_like_2.title }}</a></h4>
+                                                {% for cat in  post.U_may_also_like_2.categories.all %} 
+                                                <small><a href="{{ post.U_may_also_like_2.get_absolute_url}}" title="">{{ cat.title }}</a></small>
+                                                {% endfor %}
+                                                <small><a href="blog-category-01.html" title="">{{  post.U_may_also_like_2.timestamp }}</a></small>
+                                            </div><!-- end meta -->
+                                        </div><!-- end blog-box -->
+                                    </div><!-- end col -->
+
+                                    {% endif %}
                                 </div><!-- end row -->
+                                
                             </div><!-- end custom-box -->
 
                             <hr class="invis1">
@@ -208,9 +226,7 @@
                                     </div><!- end col->
                                 </div><!- end row --
                             </div><!- end custom-box ->
-
                             <hr class="invis1">
-
                             <div class="custombox clearfix">
                                 <h4 class="small-title">Leave a Reply</h4>
                                 <div class="row">
@@ -222,7 +238,6 @@
                                             <input type="text" class="form-control" placeholder="Email address">
                                         
                                             <textarea class="form-control" placeholder="Your comment"></textarea>->
-
                                             <button type="submit" class="btn btn-primary">Submit Comment</button>
                                         </form>
                                     </div>

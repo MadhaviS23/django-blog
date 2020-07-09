@@ -3,6 +3,7 @@
 {% load static %}
 {% static "images" as baseUrl %}
 
+
 {% block content %}
     <div id="wrapper">
         <div class="page-title wb">
@@ -48,7 +49,7 @@
                                         <div class="blog-box">
                                             <div class="post-media">
                                                 <a href="{{ obj.get_absolute_url }}" title="">
-                                                    <img src="{{obj.thumbnail.url}}" alt="" class="img-fluid">
+                                                    <img src="{{obj.thumbnail.url}}" style="width: 400px; height: 200px;" alt="" class="img-fluid">
                                                     <div class="hovereffect">
                                                         <span></span>
                                                     </div><!-- end hover -->

@@ -44,6 +44,9 @@ class post(models.Model):
     featured = models.BooleanField(default=True)
     prev_post = models.ForeignKey('self', related_name='previous', on_delete=models.SET_NULL, blank=True, null=True)
     next_post = models.ForeignKey('self', related_name= 'next', on_delete=models.SET_NULL, blank=True, null=True)
+    U_may_also_like_1 = models.ForeignKey('self', related_name= 'option1', on_delete=models.SET_NULL, blank=True, null=True)
+    U_may_also_like_2 = models.ForeignKey('self', related_name= 'option2', on_delete=models.SET_NULL, blank=True, null=True)
+
 
     def _str_(self):
         return self.title, self.categories, self.author
@@ -54,6 +57,7 @@ class post(models.Model):
             'id' : self.id 
 
         })
+
 
 
 

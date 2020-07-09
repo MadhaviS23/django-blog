@@ -12,9 +12,16 @@ from .models import post , Category, Author
 def category(request,id):
     category = get_object_or_404(Category,id=id)
     catdetail = post.objects.filter(categories__title = category.title)
+    latest = post.objects.order_by('-timestamp')[0:4]
+    popular = post.objects.order_by('comment_count')[0:4]
+    cat_count = get_category_count()
+
     context = {
         'category' : category,
         'catdetail' : catdetail,
+        'latest' : latest,
+        'popular' : popular,
+        'cat_count' : cat_count
     }
     return render (request, 'category_detail.html', context)
 
@@ -64,7 +71,8 @@ def single(request,id):
     single = get_object_or_404(post, id=id)
     latest = post.objects.order_by('-timestamp')[0:4]
     popular = post.objects.order_by('comment_count')[0:4]
-   # cat_count = get_category_count()
+    cat_count = get_category_count()
+   
 
     
     
@@ -72,7 +80,7 @@ def single(request,id):
         'post':single,
         'latest' : latest,
         'popular' : popular,
- #       'cat_count': cat_count
+        'cat_count': cat_count
     }
     return render (request, 'single.html', context)
 
@@ -103,14 +111,14 @@ def index(request):
     featured = post.objects.filter(featured=True)
     latest = post.objects.order_by('-timestamp')[0:4]
     random1 = post.objects.all()[0:2]
-    random2 = post.objects.all()[4:6]
+    random2 = post.objects.all()[3:6]
     random3 = post.objects.all()[2:4]
     category1 = post.objects.all()[0:3]
     category2 = post.objects.all()[3:6]
     popular = post.objects.order_by('comment_count')[0:4]
     section1_1 = post.objects.filter(id=1)
-    section1_2 = post.objects.filter(id=2)
-    section1_3 = post.objects.filter(id=2)
+    section1_2 = post.objects.filter(id=3)
+    section1_3 = post.objects.filter(id=4)
     cat_count = get_category_count()
     
 
