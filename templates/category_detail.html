@@ -8,13 +8,11 @@
 {% block content %}
 <style>
     .blog-box img{
-         width: 345px;
+         max-width: 347px;
          height: 200px;
      }
 
-     .blog-meta{
-         font-size : 15px;
-     }
+    
 </style>
     <div id="wrapper">
 
@@ -40,10 +38,10 @@
 
                             {% for post in catdetail%}
 
-                            <div> </div>
-                                <div class="pitem item-w1 item-h1">
+                            
+                                <div class="pitem item-w1 item-h1" style="max-width: 380px;">
                                     <div class="blog-box">
-                                        <div class="post-media">
+                                        <div class="post-media" >  
                                             <a href="{{ post.get_absolute_url}}" title="">
                                                 <img src="{{ post.thumbnail.url }}" alt="" class="img-fluid">
                                                 <div class="hovereffect">
@@ -51,10 +49,10 @@
                                                 </div><!-- end hover -->
                                             </a>
                                         </div><!-- end media -->
-                                        <div class="blog-meta">
-                                           <h4> <a href="{{ post.get_absolute_url}}" title="">{{post.title}}</a> </h4>
-                                            <a href="{{ post.get_absolute_url}}" title="">{{post.overview}}</a><br>
-                                            <small><a href="{{ post.get_absolute_url}}" title="">{{post.timestamp}}</a></small>
+                                        <div class="blog-meta" style="padding-top: 10px;">
+                                           <a href="{{ post.get_absolute_url}}"  style="font-size: 18px; line-height: 20px; word-wrap: break-word; font-weight: 500; padding-top: 20px;" title="">{{post.title}}</a> <br>
+                                            
+                                            <small><a href="{{ post.get_absolute_url}}" title="">{{post.timestamp | date:"F/d/y"}}</a></small>
                                         </div><!-- end meta -->
                                     </div><!-- end blog-box -->
                                 </div><!-- end col -->

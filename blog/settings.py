@@ -132,8 +132,8 @@ STATIC_ROOT = os.path.join (BASE_DIR, 'assests')
 
 #Tinymce
 
-# TINYMCE_JS_URL = os.path.join(STATIC_URL, "js/tinymce/tinymce.min.js")
-# TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "js/tinymce")
+#TINYMCE_JS_URL = os.path.join(STATIC_URL, "js/tinymce/tinymce.min.js")
+#TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "js/tinymce")
 
 TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': True,
@@ -160,4 +160,6 @@ TINYMCE_DEFAULT_CONFIG = {
     'contextmenu': 'formats | link image',
     'menubar': True,
     'statusbar': True,
+    'width': 900,
+    'height': 500
 }

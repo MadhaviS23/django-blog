@@ -23,8 +23,8 @@
 **************************************/
 
 body {
-    font-size: 15px;
-    line-height: 26px;
+    font-size: 18px;
+    line-height: 20px;
     background-color: #ffffff;
 }
 
@@ -82,8 +82,8 @@ h3 {
 }
 
 h4 {
-    font-size: 19px;
-    line-height: 29px;
+    font-size: 12px;
+    line-height: 15px;
     margin-bottom: 14px
 }
 
@@ -100,18 +100,18 @@ h6 {
 }
 
 a {
-    color: #111111;
+    color: #0f0f0f;
 }
 
 body,
 p {
-    color: #5e5e5e;
+    color: #111111;
 }
 
 p {
-    margin-bottom: 26px;
-    font-size: 15px;
-    line-height: 26px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 38px;
 }
 
 a {
@@ -1114,7 +1114,7 @@ div.tab button:hover {
 .blog-meta.big-meta h4 {
     padding: 1rem 0 0.6rem;
     margin: 0;
-    font-size: 28px;
+    font-size: 25px;
 }
 
 .blog-meta.big-meta p {

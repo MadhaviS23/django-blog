@@ -6,16 +6,9 @@
 
 
 {% block content %}
-<!--
-<style>
-    .masonry-box post-media .img {
-        width: inherit;
-        height: 400px;
-    }
 
-</style>
 
--->
+
 
     <div id="wrapper">
         <section class="section first-section"></section>
@@ -49,7 +42,7 @@
                 
 
                 <div class="masonry-box post-media">
-                    <img src="{{obj.thumbnail.url}}"  style="width: 440px; height: 265px;" alt="" class="img-fluid">
+                    <img src="{{obj.thumbnail.url}}"  style="width: 100% ; height: 265px;" alt="" class="img-fluid">
                     <div class="shadoweffect">
                        <div class="shadow-desc">
                            <div class="blog-meta">
@@ -118,8 +111,8 @@
                                             </a>
                                         </div><!-- end media -->
                                         <div class="blog-meta big-meta">
-                                            <h4><a href="{{obj.get_absolute_url}}" title="">{{ obj.title }}</a></h4>
-                                            <p>{{ obj.overview }}</p>
+                                            <h3><a href="{{obj.get_absolute_url}}"  title="">{{ obj.title }}</a></h3>
+                                            <p style="font-size: 15px;">{{ obj.overview }}</p>
                                             {%  for cat in obj.categories.all%}
                                             <small><a href="" title="">{{cat.title}}</a></small>
                                             {% endfor %}
@@ -203,19 +196,19 @@
 
                                     {% for obj in category1 %}
 
-                            <div class="blog-box row" style="padding-top:20px ;  padding-bottom: 40px;">
+                            <div class="blog-box row" >
                                 <div class="col-md-4">
                                     <div class="post-media">
                                         <a href="{{obj.get_absolute_url}}" title="">
-                                            <img src="{{ obj.thumbnail.url }}" style ="width: 250px; height: 200px;" alt="" class="img-fluid">
+                                            <img src="{{ obj.thumbnail.url }}"  alt="" class="img-fluid">
                                             <div class="hovereffect"></div>
                                         </a>
                                     </div><!-- end media -->
                                 </div><!-- end col -->
 
                                 <div class="blog-meta big-meta col-md-8">
-                                    <h4><a href="{{obj.get_absolute_url}}" title="">{{ obj.title }}</a></h4>
-                                    <p>{{ obj.overview }}</p>
+                                    <h5><a href="{{obj.get_absolute_url}}" style="font-size: 22px;"  title="">{{ obj.title }}</a></h5>
+                                    <p style="font-size: 15px; line-height: 1.9;">{{ obj.overview }}</p>
                                     <small><a href="{{obj.get_absolute_url}}" title="">{{obj.timestamp}}</a></small>
                                     <small><a href="{{obj.get_absolute_url}}" title=""></a></small>
                                 </div><!-- end meta -->
@@ -240,7 +233,7 @@
                         <div class="blog-box">
                             <div class="post-media">
                                 <a href="{{obj.get_absolute_url}}" title="">
-                                    <img src="{{ obj.thumbnail.url }}" style ="width: 280px; height: 200px;" alt="" class="img-fluid">
+                                    <img src="{{ obj.thumbnail.url }}"  alt="" class="img-fluid">
                                     <div class="hovereffect">
                                         <span></span>
                                     </div><!-- end hover -->

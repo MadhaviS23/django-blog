@@ -12,7 +12,7 @@ class TinyMCEWidget(TinyMCE):
 class PostForm(forms.ModelForm):
     content= forms.CharField(
         widget = TinyMCEWidget(
-            attrs = {'request': False, 'cols': 30, 'rows' :100}
+            attrs = {'request': False, 'cols': 30, 'rows' :30,}
         )
 
     )

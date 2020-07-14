@@ -73,8 +73,10 @@
     .center-side,
     .left-side,
     .right-side {
-        float: left;
-        width: 100%;
+
+        max-width: 100%;
+        position: absolute;
+
     }
     .shadow-desc {
         bottom: 0;
@@ -103,6 +105,11 @@
     .blog-title-area h3 {
         font-size: 34px;
     }
+    .blog-meta.big-meta h5 {
+        font-size: 25px;
+       
+        position: relative;
+    }
     .section-title {
         margin-top: 1rem;
     }
@@ -114,9 +121,7 @@
     .topbar-section .text-right {
         text-align: center !important;
     }
-    .blog-meta.big-meta h4 {
-        font-size: 21px;
-    }
+    
     .top-search .newsletter-widget .form-inline .form-control {
         font-size: 16px;
     }
