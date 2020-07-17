@@ -13,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Site Metas -->
-    <meta name="description" content= "Know all the ways which will bring you loads of money without much hassels and investments ">
-    <meta name="keywords" content="Earn money without any investment , blog, seo strategies, marketing tips">
+    <meta name="description" content= "{{ post.description}}">
+    <meta name="keywords" content="{{post.key1}} , {{post.key2}}, {{post.key3}}, {{post.key4}}, {{post.key5}}, {{post.key6}}, {{post.key7}}, {{post.key8}}, {{post.key9}}, {{post.key10}}">
     <meta name="author" content="">
     
     <!-- Site Icons -->
@@ -76,6 +76,8 @@
 </head>
 
 <body>
+
+   
 
 <!-- LOADER -->
 <div id="preloader">
@@ -191,10 +193,12 @@
                                     <small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>
                                 </div><!-- end meta -->
 
+                                
+
                                 <div class="post-sharing">
                                     <ul class="list-inline">
-                                        <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                                        <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u= {{ request.build_absolute_uri }}" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                        <li><a href="https://twitter.com/home?status={{share_string}}%20{{ request.build_absolute_uri }}" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
                                         <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-instagram"  style ="font-size: 20px; border-radius: 300px;" ></i></a></li>
                                     </ul>
                                 </div><!-- end post-sharing -->
@@ -219,8 +223,8 @@
 
                                 <div class="post-sharing">
                                     <ul class="list-inline">
-                                        <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                                        <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u= {{ request.build_absolute_uri }}" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                        <li><a href="https://twitter.com/home?status={{share_string}}%20{{ request.build_absolute_uri }}" class="tw-button btn btn-primary" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
                                         <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-instagram" style ="font-size: 20px;  border-radius: 300px; "></i></a></li>
                                     </ul>
                                 </div><!-- end post-sharing -->
@@ -340,46 +344,6 @@
 
                             <hr class="invis1">
 
-                            <!--
-                            <div class="custombox clearfix">
-                                <h4 class="small-title"> Comments</h4>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        {% for comment in post.get_comments %}
-                                        <div class="comments-list">
-                                            <div class="media">
-                                                <a class="media-left" href="#">
-                                                    <img src="{% static 'upload/author.jpg'%}" alt="" class="rounded-circle">
-                                                </a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading user_name">{{ comment.user }} <small>{{comment.timestamp}} ago</small></h4>
-                                                    <p>{{ comment.content }}</p>
-                                                    <a href="#" class="btn btn-primary btn-sm">Reply</a>
-                                                </div>
-                                            </div>
-                            
-                                        </div>
-                                        {%  endfor %}
-                                    </div><!- end col->
-                                </div><!- end row --
-                            </div><!- end custom-box ->
-                            <hr class="invis1">
-                            <div class="custombox clearfix">
-                                <h4 class="small-title">Leave a Reply</h4>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <form method="POST" action ="." class="form-wrapper">
-                                            {% csrf_token %}
-                                            {{ form }}
-                                            <!-<input type="text" class="form-control" placeholder="Your name">
-                                            <input type="text" class="form-control" placeholder="Email address">
-                                        
-                                            <textarea class="form-control" placeholder="Your comment"></textarea>->
-                                            <button type="submit" class="btn btn-primary">Submit Comment</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>-->
                         </div><!-- endpage-wrapper -->
                     </div><!-- end col  -->
  
@@ -485,28 +449,15 @@
                         <a href="index.html"><img src="{% static 'images/flogo.png '%}" alt="" class="img-fluid"></a>
                         <p>The person who doesnt know where his next dollar is coming from usually doesn't konw where his last dollar went .</p>
                         <div class="social">
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                            <a href="https://www.facebook.com/avieen.joe" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
+                            <a href="https://twitter.com/AvieenJ" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/next_millionarie" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="https://in.pinterest.com/avieeninfo" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
                         </div>
 
                         <hr class="invis">
 
-                        <div class="newsletter-widget text-center">
-                            <form class="form-inline" action="blog" method="POST">
-                                {% csrf_token %}
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email address">
-                                <button type="submit" class="btn btn-primary">Subscribe <i class="fa fa-envelope-open-o"></i></button>
-                            </form>
-                            <div>
-                                {% for message  in messages %}
-                                    {{message}}
                         
-                                {% endfor %}
-                            </div>
-                        </div><!-- end newsletter -->
                     </div><!-- end footer-text -->
                 </div><!-- end widget -->
             </div><!-- end col -->

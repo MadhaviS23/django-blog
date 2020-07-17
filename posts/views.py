@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Count, Q
+from urllib.parse import quote_plus
 from django.core.paginator import Paginator ,EmptyPage ,PageNotAnInteger
 from .models import post , Category, Author
 
@@ -72,7 +73,7 @@ def single(request,id):
     latest = post.objects.order_by('-timestamp')[0:4]
     popular = post.objects.order_by('comment_count')[0:4]
     cat_count = get_category_count()
-   
+    share_string = quote_plus(single.overview)
 
     
     
@@ -80,7 +81,8 @@ def single(request,id):
         'post':single,
         'latest' : latest,
         'popular' : popular,
-        'cat_count': cat_count
+        'cat_count': cat_count,
+        'share_string': share_string,
     }
     return render (request, 'single.html', context)
 
